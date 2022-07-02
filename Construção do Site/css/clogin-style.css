@@ -1,0 +1,41 @@
+.main {
+    width: 60vw;
+    flex-direction: column;
+}
+
+.main-up {
+/*     border: 1px solid white; */
+    display: flex;
+    width: 50%;
+    margin-bottom: 3%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-up > img {
+    width: 20%;    
+}
+
+.main-up > h1 {
+    color: #00ff88;
+    font-size: 20pt;
+}
+
+.main-down {
+    border: 1px solid white;
+    width: 50%;
+    height: 60vh;
+    padding: 15px;
+}
+
+.main-down > h2 {
+    color: #00ff88;
+    text-transform: uppercase;
+}
+
+.main-down > .main-down_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

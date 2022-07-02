@@ -1,0 +1,60 @@
+.principal > .informacoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0;
+}
+
+/* ===== Informações de Cadastro ===== */
+
+.principal > .informacoes > .informacoes-cadastro {
+    /* border: 1px solid black; */
+    width: 98%;
+    height: 94%;
+}
+
+.principal > .informacoes > .informacoes-cadastro > .title-admin {
+    display: flex;
+    justify-content: center;
+    height: 7%;    
+}
+
+.principal > .informacoes > .informacoes-cadastro > .info-cad-opcoes {
+    /* border: 1px solid black; */
+    width: 77vw;
+    height: 81vh;        
+    margin-top: 50px;
+}
+
+.principal > .informacoes > .informacoes-cadastro > .info-cad-opcoes > .opcoes {
+    cursor: pointer;
+}
+
+.principal > .informacoes > .informacoes-cadastro > .info-cad-opcoes > .opcoes > .titulo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.principal > .informacoes > .informacoes-cadastro > .info-cad-opcoes > .opcoes > .titulo > span {
+    color: #201b2c;
+}
+
+.principal > .informacoes > .informacoes-cadastro > .info-cad-opcoes > .open > .titulo > span {
+    transform: rotate(180deg);
+}
+
+.principal > .informacoes > .informacoes-cadastro > .info-cad-opcoes > .close > .list {
+    height: 0;
+    overflow: hidden;
+}
+
+.principal > .informacoes > .informacoes-cadastro > .info-cad-opcoes > .open > .list {
+    height: max-content;
+    margin-bottom: 10px;
+}
+
+
+
+

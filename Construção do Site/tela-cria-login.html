@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style-global.css">
+        <link rel="stylesheet" href="css/clogin-style.css">
+        <title>Criar Conta</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="main-up">
+                <img src="icon/bookshelf.png" alt="">
+                <h1><b>Biblioteca Online</b></h1>
+            </div>
+            <div class="main-down rlogin-card">
+                <h2>Criar conta</h2>
+                <div class="main-down_text textfield">
+                    <label for="">Login</label>
+                    <input type="text" placeholder="Login">
+                </div>     
+                <div class="main-down_senhas">
+                    <div class="main-down_senha textfield">
+                        <label for="senha">Senha</label>
+                        <input type="password" placeholder="Senha">
+                    <div class="main-down_confsenha textfield">
+                        <label for="senha">Confirmar Senha</label>
+                        <input type="password" placeholder="Confirmar Senha">
+                    </div>
+                </div>
+                <div class="main-down_nivelacesso textfield">
+                    <label for="">Nível de Acesso</label>
+                    <select name="" id="nivel_acesso">
+                        <option value="" disabled selected hidden>Selecione...</option>
+                        <option value="administrador" >Administrador</option>
+                        <option value="bibliotecario" >Bibliotecário</option>
+                        <option value="usuário" >Usuário</option>
+                    </select>
+                </div>
+                <button class="main-down_button btnlogin" style="width: 95%"><a href="#">Criar</a></button> 
+            </div>
+        </div>
+    </body>
+</html>
