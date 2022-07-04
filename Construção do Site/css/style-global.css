@@ -136,3 +136,13 @@ body {
     text-decoration: none;
     color: #2b134b;
 }
+
+.rlogin-card > label > h5 {
+    color: #514869;
+    
+}
+
+.rlogin-card > label > h5 > b > a {
+    text-decoration: none;
+    color: #00ff88;
+}
