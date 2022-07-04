@@ -1,0 +1,141 @@
+/* ======================= Consulta de Livros ============================== */
+
+.container > .menu-lateral > ul > .active > a > .title {
+    color: #201B2C;
+}
+
+.container > .principal > .informacoes > .principal-container {
+    width: 77.3vw;
+    height: 86vh;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container > .principal > .informacoes > .principal-container > label {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 45px;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta {
+    width: 76vw;
+    height: 79vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid #201B2C;
+    box-shadow: -6px 1px #201B2C;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > form {
+    width: 75vw;
+    height: 25vh;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 24vw 24vw 24vw;
+    /* border: 1px solid #201B2C; */
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > form > .inputbox{
+    width: 22vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-size: 13px;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > form > .inputbox > #nome {
+    padding-right: 20px;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > form > .inputbox > #autor {
+    padding-right: 0px;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > form > .inputbox > input::placeholder{
+    padding-left: 5px;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > form > .btn-pesquisar {
+    padding: 10px 20px;
+    /* border: 1px solid #201B2C; */
+    display: flex;
+    justify-content: center;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > form > .btn-pesquisar > button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #201B2C;
+    cursor: pointer;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > form > .btn-pesquisar > button > a {
+    text-decoration: none;
+    color: #00FF88;
+}
+
+.container > .principal > .informacoes > .principal-container > .formulario-consulta > .mostrar-consulta {
+    /* border: 1px solid black; */
+    width: 75vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ======================= Reserva de Livros ============================== */
+.bloco_de_reserva {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 100%;
+}
+
+.info-cad-opcoes {
+    /* border: 1px solid black; */
+    width: 77vw;
+    height: 81vh;        
+    margin-top: 50px;
+}
+
+.info-cad-opcoes > .opcoes {
+    cursor: pointer;
+}
+
+.info-cad-opcoes > .opcoes > .titulo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.info-cad-opcoes > .opcoes > .titulo > span {
+    color: #201b2c;
+}
+
+.info-cad-opcoes > .open > .titulo > span {
+    transform: rotate(180deg);
+}
+
+.info-cad-opcoes > .close > .list {
+    height: 0;
+    overflow: hidden;
+}
+
+.info-cad-opcoes > .open > .list {
+    height: max-content;
+    margin-bottom: 10px;
+}
+
+.info-cad-opcoes > .open > .list > form > fieldset > .botao_reservar {
+    padding: 10px;
+}
+
+.info-cad-opcoes > .open > .list > form > fieldset > .botao_reservar > button {
+    padding: 10px 20px;
+    background-color: #201B2C;
+    color: #00FF88;
+}

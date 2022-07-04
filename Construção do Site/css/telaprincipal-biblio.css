@@ -1,0 +1,9 @@
+.container > .principal > .informacoes > .principal-container {
+    /* border: 1px solid black; */
+    width: 77vw;
+    height: 90vh;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+

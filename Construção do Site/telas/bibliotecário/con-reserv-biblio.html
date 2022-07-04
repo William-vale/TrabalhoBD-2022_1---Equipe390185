@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/telaprincipal.css">
+        <link rel="stylesheet" href="../../css/telaprincipal-usuario.css">
+        <link rel="stylesheet" href="../css/cad-usuario.css">
+        <link rel="stylesheet" href="../css/cad-admin.css">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="menu-lateral">
+                <ul>
+                    <li class="list">
+                        <a href="../../telaprincipal-biblio.html">
+                            <span class="icon"><img src="../../icon/home-outline.svg" alt=""></span>
+                            <span class="title">Inicio</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><img src="../../icon/person-add-outline.svg" alt=""></span>
+                            <span class="title">Cadastrar</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="../../telas/bibliotecário/con-usua-biblio.html">
+                            <span class="icon"><img src="../../icon/person-outline.svg" alt=""></span>
+                            <span class="title">Consultar Cadastros</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="con-livro-biblio.html">
+                            <span class="icon"><img src="../../icon/book-outline.svg" alt=""></span>
+                            <span class="title">Consultar Livros</span>
+                        </a>
+                    </li>
+                    <li class="list active">
+                        <a href="con-reserv-biblio.html">
+                            <span class="icon"><img src="../../icon/bookmark-outline.svg" alt=""></span>
+                            <span class="title">Reservas</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><img src="../../icon/log-out-outline.svg" alt=""></span>
+                            <span class="title">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="principal">
+                <div class="informacoes">
+                    <section>
+                        <div class="descricao-trab">
+                            <h3>Trabalho Final – BD 2022.1 – Formação de Equipe 390185</h3>
+                        </div>
+                        <div class="corpo-section">
+                            <h3>Nível de usuário: </h3>
+                            <label for="tipo_usuario"><h3>Bibliotecário</h3></label>
+                        </div>
+                    </section>    
+                
+                    <div class="principal-container">
+                        <label for="titulo"><h1>Reserva de livro</h1></label>
+
+                        <div class="bloco_de_reserva">
+                            <div class="info-cad-opcoes ">
+                                <div class="opcoes open" id="Aluno">   
+                                    <div class="titulo">
+                                        <h2 class="titulo">Reserva Aluno</h2>
+                                       <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                                    </div>
+                                    
+                                    <div class="list">
+                                        <form action="">
+                                            <fieldset>
+                                                <div>
+                                                    <label for="ISBN">Id do Livro (ISBN)</label>
+                                                    <input type="text">
+                                                </div>
+
+                                                <div class="botao_reservar">
+                                                    <button><h4>Reservar Livro</h4></button>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+    
+                                <div class="opcoes close" id="Professor">
+                                    <div class="titulo">
+                                        <h2 class="titulo">Reserva Professor</h2>
+                                       <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                                    </div>
+
+                                    <div class="list">
+                                        <form action="">
+                                            <fieldset>
+                                                <div>
+                                                    <label for="ISBN">Id do Livro (ISBN)</label>
+                                                    <input type="text">
+                                                </div>
+
+                                                <div class="botao_reservar">
+                                                    <button><h4>Reservar Livro</h4></button>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                                    
+                                <div class="opcoes close" id="Funcionário">
+                                    <div class="titulo">
+                                        <h2 class="titulo">Reserva Funcionário</h2>
+                                       <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                                    </div>                           
+                                    
+                                    <div class="list">
+                                        <form action="">
+                                            <fieldset>
+                                                <div>
+                                                    <label for="ISBN">Id do Livro (ISBN)</label>
+                                                    <input type="text">
+                                                </div>
+
+                                                <div class="botao_reservar">
+                                                    <button><h4>Reservar Livro</h4></button>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script src="../js/cad-admin.js"></script>
+    </body>
+</html>
