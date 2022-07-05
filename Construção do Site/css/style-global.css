@@ -50,6 +50,19 @@ body {
     width: 10vw;
 }
 
+/* ======================= Autenticação do Login ============================ */
+
+#msgError {
+    text-align: center;
+    color: #ff0000;
+    background-color: #ffbbbb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}
+
+/* ========================================================================== */
+
 .rlogin {
     width: 50%;
     height: 100vh;

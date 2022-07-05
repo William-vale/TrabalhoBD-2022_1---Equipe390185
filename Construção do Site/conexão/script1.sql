@@ -4,7 +4,7 @@
 =======================================
 */
 
-create database Biblioteca;
+create database IF NOT EXISTS Biblioteca;
 use Biblioteca;
 
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`Acesso` (
@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`Acesso` (
   `niveis_acesso` ENUM('admin', 'biblio', 'usuario') NOT NULL,
   PRIMARY KEY (`login`, `senha`)
 );
+
 
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`livros` (
   `ISBN` INT NOT NULL AUTO_INCREMENT,
@@ -30,14 +31,6 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`categoria` (
 	PRIMARY KEY (`codigo`),
 	FOREIGN KEY (`Livros_ISBN`) REFERENCES `Biblioteca`.`livros` (`ISBN`)
 );
-
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`autores_dos_livros` (
-  `livros_ISBN` INT NOT NULL,
-  `autores_email` VARCHAR(60) NOT NULL,
-  PRIMARY KEY (`livros_ISBN`, `autores_email`),
-  FOREIGN KEY (`livros_ISBN`) REFERENCES `Biblioteca`.`livros` (`ISBN`),
-  FOREIGN KEY (`autores_email`) REFERENCES `Biblioteca`.`autores` (`email`)
-);
   
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`autores` (
   `nome` VARCHAR(40) NOT NULL,
@@ -45,10 +38,32 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`autores` (
   `nacionalidade` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`email`));
   
+CREATE TABLE IF NOT EXISTS `Biblioteca`.`autores_dos_livros` (
+  `livros_ISBN` INT NOT NULL,
+  `autores_email` VARCHAR(60) NOT NULL,
+  PRIMARY KEY (`livros_ISBN`, `autores_email`),
+  FOREIGN KEY (`livros_ISBN`) REFERENCES `Biblioteca`.`livros` (`ISBN`),
+  FOREIGN KEY (`autores_email`) REFERENCES `Biblioteca`.`autores` (`email`)
+);
+
+
+  
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`curso` (
   `cod_curso` INT NOT NULL AUTO_INCREMENT,
   `nome_curso` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`cod_curso`));
+  
+  
+  CREATE TABLE IF NOT EXISTS `Biblioteca`.`professores` (
+  `mat_siape` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NOT NULL,
+  `endereco` VARCHAR(70) NOT NULL,
+  `regime_trabalho` ENUM('20', '40', 'DE') NOT NULL,
+  `data_contratacao` DATE NOT NULL,
+  `cod_curso` INT NOT NULL,
+	PRIMARY KEY (`mat_siape`),
+	FOREIGN KEY (`cod_curso`) REFERENCES `Biblioteca`.`curso` (`cod_curso`)
+);
   
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`livros_reserva_professores` (
   `livros_ISBN` INT NOT NULL,
@@ -56,39 +71,20 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`livros_reserva_professores` (
   `professores_cod_curso` INT NOT NULL,
   `qtd_livros` INT NULL,
   `prazo_entrega` DATE NULL,
-	PRIMARY KEY (`livros_ISBN`, `professores_mat_siape`, `professores_cod_curso`),
+	PRIMARY KEY (`livros_ISBN`, `professores_mat_siape`),
     FOREIGN KEY (`livros_ISBN`) REFERENCES `Biblioteca`.`livros` (`ISBN`),
-    FOREIGN KEY (`professores_mat_siape` , `professores_cod_curso`) REFERENCES `Biblioteca`.`professores` (`mat_siape` , `cod_curso`)
+    FOREIGN KEY(`professores_cod_curso`) REFERENCES `Biblioteca`.`professores`(`cod_curso`),
+    FOREIGN KEY (`professores_mat_siape`) REFERENCES `Biblioteca`.`professores` (`mat_siape`)
 );
 
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`professores` (
-  `mat_siape` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(50) NOT NULL,
-  `endereco` VARCHAR(70) NOT NULL,
-  `regime_trabalho` VARCHAR(3) NOT NULL,
-  `data_contratacao` DATE NOT NULL,
-  `cod_curso` INT NOT NULL,
-	PRIMARY KEY (`mat_siape`, `cod_curso`),
-	FOREIGN KEY (`cod_curso`) REFERENCES `Biblioteca`.`curso` (`cod_curso`)
-);
+
 
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`telefone_professores` (
   `telefone` VARCHAR(14) NOT NULL,
   `professores_mat_siape` INT NOT NULL,
 	PRIMARY KEY (`telefone`),
     FOREIGN KEY (`professores_mat_siape`) REFERENCES `Biblioteca`.`professores` (`mat_siape`));
-
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`alunos_reserva_livros` (
-  `alunos_matricula` INT NOT NULL,
-  `alunos_cod_curso` INT NOT NULL,
-  `livros_ISBN` INT NOT NULL,
-  `qtd_livros` INT NULL,
-  `prazo_reserva` DATE NULL,
-	PRIMARY KEY (`alunos_matricula`, `alunos_cod_curso`, `livros_ISBN`),
-    FOREIGN KEY (`alunos_matricula`) REFERENCES `Biblioteca`.`alunos` (`matricula`),
-    FOREIGN KEY (`livros_ISBN`) REFERENCES `Biblioteca`.`livros` (`ISBN`)
-);
-
+    
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`alunos` (
   `matricula` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) NOT NULL,
@@ -101,11 +97,31 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`alunos` (
 	FOREIGN KEY (`cod_curso`) REFERENCES `Biblioteca`.`curso` (`cod_curso`)
 );
 
+CREATE TABLE IF NOT EXISTS `Biblioteca`.`alunos_reserva_livros` (
+  `alunos_matricula` INT NOT NULL,
+  `alunos_cod_curso` INT NOT NULL,
+  `livros_ISBN` INT NOT NULL,
+  `qtd_livros` INT NULL,
+  `prazo_reserva` DATE NULL,
+	PRIMARY KEY (`alunos_matricula`, `alunos_cod_curso`, `livros_ISBN`),
+    FOREIGN KEY (`alunos_matricula`) REFERENCES `Biblioteca`.`alunos` (`matricula`),
+    FOREIGN KEY (`livros_ISBN`) REFERENCES `Biblioteca`.`livros` (`ISBN`)
+);
+
+
+
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`telefone_alunos` (
   `telefone` VARCHAR(14) NOT NULL,
   `alunos_matricula` INT NOT NULL,
 	PRIMARY KEY (`telefone`),
     FOREIGN KEY (`alunos_matricula`) REFERENCES `Biblioteca`.`alunos` (`matricula`)
+);
+
+CREATE TABLE IF NOT EXISTS `Biblioteca`.`funcionarios` (
+  `matricula` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NOT NULL,
+  `endereco` VARCHAR(70) NOT NULL,
+  PRIMARY KEY (`matricula`)
 );
 
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`livros_reserva_funcionarios` (
@@ -117,13 +133,6 @@ CREATE TABLE IF NOT EXISTS `Biblioteca`.`livros_reserva_funcionarios` (
 	PRIMARY KEY (`livros_ISBN`, `funcionarios_matricula`),
     FOREIGN KEY (`livros_ISBN`) REFERENCES `Biblioteca`.`livros` (`ISBN`),
     FOREIGN KEY (`funcionarios_matricula`) REFERENCES `Biblioteca`.`funcionarios` (`matricula`)
-);
-
-CREATE TABLE IF NOT EXISTS `Biblioteca`.`funcionarios` (
-  `matricula` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(50) NOT NULL,
-  `endereco` VARCHAR(70) NOT NULL,
-  PRIMARY KEY (`matricula`)
 );
 
 CREATE TABLE IF NOT EXISTS `Biblioteca`.`telefone_funcionarios` (
@@ -290,12 +299,8 @@ VALUE ('101', '302', 1, '2022/10/08');
 
 /*
 select * from livros_reserva_funcionarios;
-
 alter table livros_reserva_funcionarios
 drop column livros_reserva_funcionarioscol;
-
 drop table telefone_professores;
-
 delete from livros_reserva_professores
-where livros_ISBN='100';
-*/
+where livros_ISBN='100';'*/

@@ -18,16 +18,19 @@
             <div class="rlogin">
                 <div class="rlogin-card">
                     <h1>LOGIN</h1>
+
+                    <div id="msgError"></div>
+                    
                     <div class="textfield">
-                        <label for="usuario">Usuário</label>
-                        <input type="text" name="usuario" placeholder="Usuário">
+                        <label id="userLabel" for="usuario">Usuário</label>
+                        <input id="usuario" type="text" name="usuario" placeholder="Usuário">
                     </div>
                     <div class="textfield">
-                        <label for="senha">Senha</label>
-                        <input type="password" name="senha" placeholder="Senha">
+                        <label id="senhaLabel" for="senha">Senha</label>
+                        <input id="senha" type="password" name="senha" placeholder="Senha">
                     </div>
                     <div class="textfield">
-                        <label for="nivel-acesso">Nível de Usuário</label>
+                        <label id="nivel-label" for="nivel-acesso">Nível de Usuário</label>
                         <select name="nivel-acesso" id="nivel-acesso">
                             <option value="Selecionar-opções" disabled selected hidden>Selecione...</option>
                             <option value="Administrador">Administrador</option>
@@ -35,10 +38,12 @@
                             <option value="Usuário">Usuário</option>
                         </select>
                     </div>
-                    <button class="btnlogin"><a href="">Login</a></button>
+                    <button class="btnlogin"><a href="" onclick="entrar()">Login</a></button>
                     <label for=""><h5>Não tem cadastro?<b><a href="tela-cria-login.html"> Cadastre-se aqui!</a></b></h5></label>
                 </div>
             </div>
         </div>
+
+        <script src="js/script-login.js"></script>
     </body>
 </html>
